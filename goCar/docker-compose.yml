@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  #outro container --- backend
+  springweb:
+    container_name: back_server_gocar3
+    build: . #preciso do Dockerfile para gerar a imagem
+    image: "gocar"
+    ports:
+      - "8081:8080"
+    networks:
+      - sam
+
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+networks:
+  servers:
+    driver: bridge

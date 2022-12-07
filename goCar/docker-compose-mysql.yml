@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  #dados para crição do container do mysql
+  mysql_db:
+    image: "mysql:8.0" #imagem vem do dockerhub, equivale ao from
+    container_name: mysql_server_gocar3 #nomeando container
+    ports: # redirecionando as portas
+      - "3307:3306" # primeira meu pc e segunda porta container
+    environment: #variaveis de ambientes do mysql
+      MYSQL_DATABASE: gocar
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 98164123
+      MYSQL_ROOT_PASSWORD: 98164123
+    volumes: #meu hd externo para o container
+      - db_mysql:/var/lib/mysql
+    networks: # uma rede entre os container
+      - sam
+  ##fim do mysql
+
+  #outro container --- backend
+
+volumes:
+  db_mysql:
+
+networks:
+  servers:
+    driver: bridge
