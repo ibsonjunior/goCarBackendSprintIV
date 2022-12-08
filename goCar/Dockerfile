@@ -7,3 +7,4 @@ FROM openjdk:17-slim
 WORKDIR /app
 COPY --from=MAVEN_BUILD /build/target/goCar-*.jar /app/goCar.jar
 ENTRYPOINT ["java","-Dspring.profiles.active=docker", "-jar", "goCar.jar"]
+EXPOSE 8080
