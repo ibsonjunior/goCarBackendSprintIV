@@ -1,2 +1,0 @@
-# GoCarBackend
-Sprint III
